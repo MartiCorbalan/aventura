@@ -1,0 +1,170 @@
+<html>
+  <head>
+    <title>La teva aventura</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  </head>
+  <body>
+    
+<br>
+    <main class="contenedor">
+      <h1 class="title">Benvingut a la teva aventura, llegeix i disfruta!</h1>
+      <header class="pagina">
+        <div class="">
+            <div>
+            <p> Pagina</p>
+            
+            </div>
+         <div class="box">
+                
+          </div>
+
+        </div>
+        
+      </header>
+      <br>
+      <section class="text">
+          <div class="text">
+
+            <img src="img/good.png" class="img" style="height: 40px; width: 40px;">
+
+          </div>
+
+      </section>
+      
+      <br>
+      <footer class="botons">
+        <div>
+          <button type="button" class="btn btn-primary " onclick="ferSi()" id="si">Si</button>
+          <button type="button" class="btn btn-danger botono " onclick="ferNo()" id="no">No</button>
+        </div>
+         <div class="botons2">
+          <button type="button" class="btn btn-primary" onclick="window.location.reload()" id="restart">Tornar a jugar</button>
+          <button type="button" class="btn btn-danger btn_sortir" onclick="sortir()">Sortir</button>
+          
+          
+      </div>
+      </footer>
+      
+     
+     
+    </main>
+
+    <script>
+      
+   
+
+const historia = [{
+    //0
+    text: "aquesta historia tracta sobre una persona que ha de decidir el seu futur a partir de les opcions que trii. \n" +  
+          "si decideixes seguir, click SI, i si vols que el programa acabi click NO \n" +
+          "que vols escriure? ",
+    si: 1,
+    no: 2,
+}, 
+{
+    //1
+    text: "has decicit continuar amb la historia",
+    si: 3,
+    //no: 2,
+}, 
+{
+    //2
+    text: "aquesta historia s-ha acabat!",
+    no: 1,
+    fi: true
+}, 
+{
+    //3
+    text: "vaja t-has trobat amb el señor PEKKA, aixo es un enemic poderos \n" +  
+          " click SI si vols atacar o NO si vols surtir corrent com un Montapuercos",
+    si: 4,
+    no: 5,
+}, 
+{
+    //4
+    text: "has decidit atacar, tira una torre infernal o una bandida \n" +
+    "depen del que triïs guanyaràs la batalla o et donarà tal wantazo que t'enviara a aña \n" +
+    "per utilitzar la torre infernal click SI i per la bandida click NO \n" +
+    "que vols esciure?",
+    si: 6,
+    no: 7
+},
+{
+    //5
+    text: "has decidit sortir corrents com un champion \n" +
+    "no tornis per aqui bobo",
+    si: 2,
+    fi: true
+},
+
+{
+    //6
+    text: "has decidit utilitzar la torre infernal, \n" +
+          "la torre infernal es una arma que destrueix el PEKKA en un moment, has agafat l'opcio mes optima",
+    si: 8 
+},
+{
+    //7
+    text: "has decidit utilitzar la bandida \n"+
+          "la bandida es molt useles contra un PEKKA, has perdut.",
+},
+{
+    //8
+    text: "has destruit al PEKKA, enhorabona, ets un geni",
+    fi: true
+}
+];
+    let indexpagina = 0;
+    document.getElementById("restart").hidden= true;
+
+      let pagina = 0;
+      let text = document.querySelector(".text");
+      text.textContent = historia[pagina].text;
+
+      function boton(){
+        document.getElementById("si").hidden= true;
+        document.getElementById("no").hidden= true;
+        document.getElementById("restart").hidden= false;
+      }
+      
+
+      function contador(){
+        document.querySelector(".box").innerHTML=pagina;
+      }
+
+      function inici(){
+        pagina = 0;
+        text.textContent = historia[pagina].text;
+        contador();
+      }
+      
+      function sortir(){
+        pagina = 2;
+        text.textContent = historia[pagina].text;
+        contador();
+        boton();
+      }
+
+      function ferSi() {
+        pagina = pagina = historia[pagina].si;
+        text.textContent = historia[pagina].text;
+        contador();
+        if(historia[pagina].fi === true){
+          boton();
+        }
+      }
+      function ferNo() {
+        pagina = pagina = historia[pagina].no;
+        text.textContent = historia[pagina].text;
+        contador();
+        if(historia[pagina].fi === true){
+          boton();
+        }
+      }
+
+    </script>
+
+  </body>
+</html>
