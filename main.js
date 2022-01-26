@@ -59,12 +59,18 @@ const historia = [{
     fi: true
 }
 ];
+
+
+    let array = [];
+
     let indexpagina = 0;
     document.getElementById("restart").hidden= true;
 
       let pagina = 0;
       let text = document.querySelector(".text");
       text.textContent = historia[pagina].text;
+      
+      usuari();
 
       function boton(){
         document.getElementById("si").hidden= true;
@@ -81,6 +87,7 @@ const historia = [{
         pagina = 0;
         text.textContent = historia[pagina].text;
         contador();
+        
       }
       
       function sortir(){
@@ -94,6 +101,7 @@ const historia = [{
         pagina = pagina = historia[pagina].si;
         text.textContent = historia[pagina].text;
         contador();
+        cami();
         if(historia[pagina].fi === true){
           boton();
         }
@@ -102,7 +110,33 @@ const historia = [{
         pagina = pagina = historia[pagina].no;
         text.textContent = historia[pagina].text;
         contador();
+        cami();
         if(historia[pagina].fi === true){
           boton();
+          
         }
       }
+
+
+     /*  function usuari() {
+        let persona = prompt("Escriu el teu nom");
+        if (persona != null) {
+          console.log('funciona');
+          document.getElementById("demo").innerHTML = "Hola " + persona ;
+        }
+      }   */
+
+      function cami(){
+
+          /*.push afageix l'element que posem per parametre, 
+             es a dir, hem creat un array buit que es diu array, 
+             llavors dins de l'array buit, li afegim amb el .push array.push(pagina) la pagina de l'array principal.
+          */
+          array.push(pagina);
+          
+          array=document.getElementById("camii").innerHTML = array;
+          
+      }
+
+      
+     
