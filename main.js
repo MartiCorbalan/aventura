@@ -10,7 +10,7 @@ const historia = [{
     //1
     text: "has decicit continuar amb la historia",
     si: 3,
-    //no: 2,
+    btnNo: false
 }, 
 {
     //2
@@ -89,6 +89,12 @@ const historia = [{
         contador();
         
       }
+
+      function proba(){
+          if(historia[pagina].btnNo === false){
+            document.getElementById("no").hidden= true;
+          }
+      }
       
       function sortir(){
         pagina = 2;
@@ -102,18 +108,20 @@ const historia = [{
         text.textContent = historia[pagina].text;
         contador();
         cami();
+        proba();
         if(historia[pagina].fi === true){
           boton();
         }
       }
+
       function ferNo() {
         pagina = pagina = historia[pagina].no;
         text.textContent = historia[pagina].text;
         contador();
         cami();
+        proba();
         if(historia[pagina].fi === true){
           boton();
-          
         }
       }
 
